@@ -9,6 +9,7 @@ from __future__ import annotations
 import logging
 
 import httpx
+from dotenv import load_dotenv
 from telegram import BotCommand, Update
 
 from app.bot import build_application
@@ -91,6 +92,7 @@ async def teardown(application) -> None:
 
 
 def main() -> None:
+    load_dotenv()
     config = Config.from_env()
     logging.basicConfig(
         level=config.log_level,
